@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css实现的三角形案例</title>
+    <style>
+    /*HTMl根元素设置基础大小，作用于rem单位，rem: font size of the root element
+      只要设置单位为rem大小的，都是相对于HTML的font-size
+    */
+    
+    html {
+        /*chrome最小字体：12px;最小显示12px；下面这个属性没用，transform: scale(0.8);可以解决问题*/
+        /*-webkit-text-size-adjust: none;*/
+        /*非chrome: 16px * 62.5% = 10px */
+        font-size: 62.5%;
+        /*chrome最小字体12px，-webkit-transform: scale(0.625);
+          但这个方法不好，只能某些具体元素的大小，而我要的是适用于全部元素的
+        */
+        /*-webkit-transform: scale(0.625);*/
+    }
+    
+    body {
+        /* 16px * 62.5% = 10px */
+        font-size: 10px;
+    }
+    /*这是我自己实现的flag，用两个内部元素拼接而成*/
+    
+    .square {
+        width: 40px;
+        height: 40px;
+        background-color: #FF6600;
+    }
+    
+    .lack-angle {
+        /*只有边框，宽高都得为0*/
+        width: 0;
+        height: 0;
+        /*正常的边框属性都有*/
+        border: 20px solid #FF6600;
+        /*顶部没有边框*/
+        border-top-style: none;
+        /*底部边框宽度有所不同（即三角角度不同），并且透明色*/
+        border-bottom-width: 15px;
+        border-bottom-color: transparent;
+    }
+    
+    .flag-single {
+        width: 0;
+        height: 0;
+        border: 2rem solid #FF6600;
+        border-top-width: 4rem;
+        border-bottom-width: 1.5rem;
+        border-bottom-color: transparent;
+    }
+    </style>
+</head>
+
+<body>
+    <p>这是自己实现的：两个元素拼接而成，大小是具体px单位</p>
+    <div class="flag-combine">
+        <div class="square"></div>
+        <div class="lack-angle"></div>
+    </div>
+    <p>这是借鉴别人实现的：一个元素，充分利用“上下左右边框宽度不一”实现；
+        <br> 大小是相对根元素的'rem'单位，而chrome最小大小：12px
+    </p>
+    <div class="flag-single">
+    </div>
+    <h3>对于“行内元素”，垂直方向上的padding/border都会发生重叠，都不占据空间</h3>
+    <p>“一行”显示的“行内元素”的“border左右”不会覆盖：
+        <span style="background-color: red; border: 10px solid pink;">border适用于所有元素吗？</span><span style="background-color: red; border: 10px solid pink;">适用于所有元素</span>
+    </p>
+    <p>“两行”显示的“行内元素”的“border上下”会覆盖：
+        <br>
+        <br>
+        <span style="background-color: red; border: 10px solid pink;">border适用于所有元素吗？</span>
+        <br>
+        <span style="background-color: red; border: 10px solid pink;">适用于所有元素</span>
+    </p>
+    <br>
+    <br>
+    <h3>而“块级元素”，就不会放生“垂直方向”上的“padding/border重叠”，只有“垂直margin”的取大者！</h3>
+    <div style="background-color: red; border: 10px solid pink;">border适用于所有元素吗？</div>
+    <div style="background-color: red; border: 10px solid pink;">border适用于所有元素吗？</div>
+</body>
+
+</html>

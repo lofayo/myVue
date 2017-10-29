@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(textarea)</title>
+</head>
+
+<body>
+    <div id="app">
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+        <p>Multiline message is {{ message }}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: ''
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>json属性命名问题</title>
+</head>
+
+<body>
+    <p>json属性命名规范问题，不能用my-value，只能用myValue？</p>
+    <p><em>回答：</em>还真的是这样的！</p>
+    <script>
+    var json = {
+        myValue: "value",
+        my - value: "other-value"
+    };
+    console.log(json.myValue);
+    console.log(json.my - value);
+    </script>
+</body>
+
+</html>

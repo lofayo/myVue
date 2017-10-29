@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简化组件注册</title>
+</head>
+
+<body>
+    <div id="app">
+        <simplify-component></simplify-component>
+    </div>
+    <div id="app2">
+        <simp-local-comp></simp-local-comp>
+        <another-comp></another-comp>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    // 将组件注册，构造器HTML模板一次性执行。vue在背后调用Vue.extend()创建HTML模板
+    // Vue.component(compoName, templObj)
+    Vue.component("simplify-component", {
+        template: "<div>this is a simplified component</div>"
+    })
+    var vm = new Vue({
+            el: "#app",
+        })
+        // 既然components属性能替代Vue.component()注册局部组件，索性更简化呗！
+    var vm2 = new Vue({
+        el: "#app2",
+        components: {
+            "simp-local-comp": {
+                template: "<div>this is a \"simplified local component\"</div>"
+            },
+            "another-comp": {
+                template: "<div>this is a <em>another</em> simplified local component</div>"
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

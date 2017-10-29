@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-html</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-12">
+		<p v-html="html"></p>
+	</div> 
+	<script>
+		var app12=new Vue({
+			el:"#app-12",
+			data:{
+				html:"<i>this is a html statement</i>"
+			}
+		})
+	</script>
+</body>
+</html>

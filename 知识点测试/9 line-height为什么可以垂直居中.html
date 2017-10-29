@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>line-height垂直居中缘由</title>
+    <style>
+    .container {
+        border: 1px solid black;
+        /*其实一个"line-height"就可以搞定垂直居中的，根本需要"height"，前提是要去掉自带margin。因为div由内容撑开*/
+        line-height: 100px;
+    }
+    
+    p {
+        margin: 0;
+    }
+    
+    .non-text {
+        display: inline-block;
+        /*有了内容，即使设置宽高为0也没用*/
+        width: 0;
+        height: 0;
+        border: 10px solid #BB1AD8;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <em>解释：</em><i>div默认高度由内容撑开，p元素自带上下margin的，所以默认就是垂直居中的</i>
+    <div class="container">
+        <p class="line">这是一行元素，由“行高”决定的垂直居中，为什么“行高”可以垂直居中？？？</p>
+    </div>
+    <br>
+    <div class="container">
+        <span>这是另一行元素</span>
+        <br>
+        <!-- <span>这是第三行元素</span> -->
+    </div>
+    <br>
+    <p><strong>解释：</strong>"line-height"使得一行文本居中很正常，但是“非文本”元素，效果就不太好使， 它默认是以行的baseline对齐，需要辅助“vertical-align"垂直居中
+    </p>
+    <div class="container">
+        <!-- 这是一“不带文本”的内联元素 -->
+        <span class="non-text"></span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>computed vs methods</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>now(computed-property): {{ now1 }}</p>
+        <p>now(methods-property): {{ now2() }}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: 'hello'
+        },
+        // 计算属性
+        computed: {
+            now1: function() {
+                setInterval(function() {
+                    return Date.now();
+                }, 1000)
+            }
+        },
+        // 方法属性
+        methods: {
+            now2: function() {
+                setInterval(function() {
+                    return Date.now();
+                }, 1000)
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

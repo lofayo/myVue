@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>filters</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-18">
+		{{message|capitalize}}
+	</div>
+	<script>
+		var app18=new Vue({
+			el:"#app-18",
+			data:{
+				message:"hello"
+			}
+		})
+	</script>
+</body>
+</html>

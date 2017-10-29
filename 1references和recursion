@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a function test</title>
+</head>
+<body>
+	<script>
+		var obj = {
+			// function recursion：arguments.callee()
+			hello: function(n){
+				if (n == 1) return 1;
+				return arguments.callee(n - 1) + n;
+			}
+		};
+		var obj2 = {
+			// object reference
+			hello: obj.hello
+		};
+		// reference
+		obj = {};	//虽然置空obj，但obj2中obj.hello引用不受影响，因为一开始已经获得“递归函数”的地址引用
+		console.log( obj2.hello(3) );
+	</script>
+</body>
+</html>

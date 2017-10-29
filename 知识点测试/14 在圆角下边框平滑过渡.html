@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>在圆角属性下边宽实现的平滑过渡</title>
+    <style>
+    .testBorderRadi {
+        width: 100px;
+        height: 120px;
+        border-style: solid solid none none;
+        border-color: red green;
+        /*设置了border-style后，物体都会有个默认的border-color:black; border-width:3px*/
+        /*所以当右边边框宽变成负数，border-width直接失效，显示默认情况*/
+        border-width: 50px 0px;
+        /*是物体的宽度，不是150px，最后右边边框宽会变成0的*/
+        border-top-right-radius: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="testBorderRadi"></div>
+</body>
+
+</html>

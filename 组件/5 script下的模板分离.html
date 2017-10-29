@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>在script下的模板分离</title>
+</head>
+
+<body>
+    <p><b>模板分离：</b>主要是为了解决template选项下的html拼接繁琐问题，释放js和html耦合性</p>
+    <div id="app">
+        <divi-temp></divi-temp>
+    </div>
+    <!-- 通过script标签使得vue构造器模板的分离 -->
+    <script type="text/x-template" id="myComponent">
+        <p>this is a divided template component</p>
+    </script>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        components: {
+            "divi-temp": {
+                template: "#myComponent"
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css实现的三角形（其它形状的三角形）</title>
+    <style>
+    body {
+        background-color: #6E4A78;
+    }
+    
+    div {
+        margin: 20px;
+    }
+    
+    .parent {
+        /*width,height都为0*/
+        width: 0;
+        /*只有border*/
+        border: 50px solid;
+        /*设置各border不同颜色*/
+        border-top-color: green;
+        border-top-width: 40px;
+        border-right-color: red;
+        border-right-width: 30px;
+        border-bottom-color: blue;
+        border-bottom-width: 20px;
+        border-left-color: pink;
+    }
+    /*     
+    .box {
+        width: 0;
+        border: 50px solid transparent;
+    }
+    
+    .top-border {
+        border-top-color: #16CCA5;
+        可以将直角旋转任意角度
+        transform: rotate(45deg);
+    }
+    
+    .right-border {
+        border-right-color: #3FC529;
+        transform: rotateY(45deg);
+    }
+    
+    .bottom-border {
+        border-bottom-color: #D0AF10;
+    }
+    
+    .left-border {
+        border-left-color: #DE19D4;
+    }
+     */
+    </style>
+</head>
+
+<body>
+    <strong>画出了不规则的三角形：也就是各边框宽度不一样</strong>
+    <div class="parent"></div>
+    <div class="box top-border"></div>
+    <div class="box right-border"></div>
+    <div class="box bottom-border"></div>
+    <div class="box left-border"></div>
+</body>
+
+</html>

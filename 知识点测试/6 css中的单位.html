@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS中的单位</title>
+  <style>
+  /*HTML根元素，作用于rem*/
+  
+  html {
+    font-size: 20px;
+  }
+  
+  body {
+    /*所有浏览器默认字体：16px。更改默认字体: 16px*62.5% = 10px;*/
+    /*font-size: 10px;*/
+    font-size: 62.5%;
+  }
+  /*em：相对字体单位，相对于父元素*/
+  
+  div {
+    /*em:相对它父元素body*/
+    font-size: 1.2em;
+  }
+  
+  span {
+    /*相对于父元素div*/
+    font-size: 1.2em;
+  }
+  /*
+         rem vs em：
+                            1、em相对于父元素的；rem相对于HTML根元素
+                            2、rem对于em的好处：只更改HTML根元素，即可按比例更改所有大小；
+                                                                    而em是逐层复合，才计算出最后大小
+    */
+  
+  p {
+    /*rem:相对于HTML根元素*/
+    font-size: 1rem;
+  }
+  </style>
+</head>
+
+<body>
+  <div>em字体大小的继承与复合
+    <span>css中默认字体单位</span>
+  </div>
+  <div>
+    <ul>
+      <li>li标签中em单位用法不一样么？</li>
+    </ul>
+  </div>
+  <div>
+    <p>rem(root em)相对根元素，相对的是HTML根元素</p>
+  </div>
+</body>
+
+</html>

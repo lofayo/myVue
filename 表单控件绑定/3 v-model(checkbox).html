@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(checkbox)</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 复选框选中，pickValue = true; 否则，false -->
+        <input type="checkbox" id="checkboxId" v-model="pickValue">
+        <label for="checkboxId">{{ pickValue }}</label>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            pickValue: false
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-if控制的条件渲染</title>
+</head>
+
+<body>
+    <div id="app-3">
+        <span>Have you eated ?</span>
+        <input type="radio" v-model="answer" value="yes">Yes
+        <input type="radio" v-model="answer" value="no">No
+        <br>
+        <p>answer:</p>
+        <p v-if="answer == 'yes'" v-bind:style="styelObject"> can you share me what do you eat? </p>
+        <p v-else-if="answer != ''" v-bind:style="styelObject"> let's go eating! don't be hungry! </p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var app3 = new Vue({
+            el: "#app-3",
+            data: {
+                check: false,
+                answer: '',
+                styelObject: {
+                    textIndent: '30px'
+                }
+            }
+        })
+        // v-if直接就是真假判断条件，v-else是配套使用，再不需要判断条件
+        // 由你选择结果来动态响应
+    </script>
+</body>
+
+</html>

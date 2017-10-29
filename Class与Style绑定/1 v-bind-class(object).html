@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind:class(object)</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 绑定class属性 -->
+        <span class="originalCls" v-bind:class="bindCls_str"></span>
+        <span class="originalCls" v-bind:class="{active: isActive, select: isSelect}"></span>
+        <span class="originalCls" v-bind:class="bindCls_obj"></span>
+        <span class="originalCls" v-bind:class="classObj_computed"></span>
+        <span class="originalCls" v-bind:class="[bindCls_str, activeCls]"></span>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                // class属性直接绑定字符串（只能绑定单一的）
+                bindCls_str: 'bindCls',
+                // class属性绑定对象，但由data真假控制
+                isActive: true,
+                isSelect: false,
+                // class属性绑定对象，对象里就表明真假
+                bindCls_obj: {
+                    active: true,
+                    select: true
+                },
+                // class属性绑定数组，数组中变量响应的结果
+                activeCls: 'active'
+            },
+            // 计算属性
+            computed: {
+                classObj_computed: function() {
+                    return {
+                        result: this.isActive && !this.isSelect
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

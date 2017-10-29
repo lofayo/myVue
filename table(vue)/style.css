@@ -1,0 +1,24 @@
+table,
+td,
+tr {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    border: 1px solid #bcbcbc;
+}
+table {
+    width: 50%;
+}
+thead {
+    background-color: #42b983;
+    color: white;
+}
+td {
+    padding: 5px;
+}
+tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+tbody tr:nth-of-type(even) {
+    background-color: #eee;
+}

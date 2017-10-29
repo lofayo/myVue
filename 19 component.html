@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+</head>
+
+<body>
+    <ol id="item">
+        <todo-item></todo-item>
+    </ol>
+    <script src="vue.js"></script>
+    <script>
+        // 注册组件（其实就是一个模板，在其它地方引用）
+        Vue.component("todo-item", {
+                template: "<li>这是一个待办事项</li>",
+            })
+            // 创建根实例（定义vue作用地方）
+        new Vue({
+            el: "#item"
+        })
+    </script>
+</body>
+
+</html>

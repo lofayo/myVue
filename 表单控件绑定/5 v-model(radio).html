@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(radio)</title>
+</head>
+
+<body>
+    <!-- 对于表单，v-model的值直接和value关联着，并且控制着谁是选中 -->
+    <div id="app">
+        <input type="radio" v-model="pick" id="A" value="A">
+        <label for="A">A</label>
+        <input type="radio" v-model="pick" id="B" value="B">
+        <label for="B">B</label>
+        <input type="radio" v-model="pick" id="C" value="C">
+        <label for="C">C</label>
+        <p>you pick: {{ pick }}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pick: 'C'
+        }
+    })
+    </script>
+</body>
+
+</html>

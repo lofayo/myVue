@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addDeletePerson</title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend>Create new person</legend>
+			<div class="input">
+				<span>Name:</span>
+				<input type="text" v-model="newPerson.name">
+			</div>
+			<div class="input">
+				<span>Age:</span>
+				<input type="text" v-model="newPerson.age">
+			</div>
+			<div class="input">
+				<span>Sex:</span>
+				<select v-model="newPerson.sex">
+					<option>男</option>
+					<option>女</option>
+				</select>
+			</div>
+			<div class="input">
+				<button v-on:click="createPerson" class="btn">添加</button>
+			</div>
+		</fieldset>
+		<table border=1>
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Sex</td>
+					<td>Del</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(person,index) in persons">
+					<td>{{person.name}}</td>
+					<td>{{person.age}}</td>
+					<td>{{person.sex}}</td>
+					<td><button v-on:click="deletePerson(index)" class='btn'>删除</button></td>
+				</tr>
+			</tbody>
+		</table>
+</div>	
+	
+	<script>
+		var app=new Vue({
+			el:"#app",
+			data:{
+				newPerson:{
+					name:"originName",
+					age:"2",
+					sex:"男"
+
+				},
+				persons:[
+					{
+						name:"lo",
+						age:"18",
+						sex:"男",
+					}
+				]
+			},
+			methods:{
+				createPerson:function(){
+					//输入框数据的绑定
+					this.persons.push(this.newPerson);
+					//每次添加完了后的解绑
+					this.newPerson={name:"",age:"",sex:""};
+				},
+				deletePerson:function(index){
+					//每次的删除就从数组里拿掉对应index的元素
+					this.persons.splice(index,1);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

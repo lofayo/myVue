@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16v-bind(property)</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-16">
+		<button v-on:click="fn" v-bind:disabled="true">按钮</button>
+	</div>	
+	<script>
+		var app16=new Vue({
+			el:"#app-16",
+			data:{
+
+			},
+			methods:{
+				fn:function(){
+					alert("a")
+				}
+			}
+		})
+	</script>
+</body>
+</html>

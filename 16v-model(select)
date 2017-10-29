@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model(select)</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-16">
+		<select v-model="selected">
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+		</select>
+		
+		<span>Selected:&nbsp;&nbsp;&nbsp;{{selected}}</span>
+	</div>	
+	<script>
+		var app16=new Vue({
+			el:"#app-16",
+			data:{
+				selected:""
+			}
+		})
+	</script>
+</body>
+</html>

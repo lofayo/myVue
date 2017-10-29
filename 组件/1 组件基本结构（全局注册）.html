@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>组件基本结构（全局注册）</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 4、在HTML中创建组件实例 -->
+        <component></component>
+    </div>
+    <div id="app2">
+        <!-- 必须挂载到Vue实例，否则无效 -->
+        <!-- <my-component></my-component> -->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 组件原理：HTML模板赋给一新的HTML标签（自定义的），并且在vue实例下作用
+        // 1、创建一个组件构造器
+        var myComponent = Vue.extend({
+            // 组件构造器，创建HTML模板
+            template: "<div>this is my first component<div>this is another</div></div>",
+        })
+
+        // 2、注册组件，将组件模板赋给一个组件标签
+        // 这个地方注册的是全局，任何vue实例都可以用的
+        Vue.component("component", myComponent);
+
+        // 3、组件必须挂载到vue实例下
+        var vm = new Vue({
+            el: "#app"
+        })
+        var vm2 = new Vue({
+            el: "#app2"
+        })
+    </script>
+</body>
+
+</html>

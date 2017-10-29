@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>callee和caller</title>
+</head>
+
+<body>
+    <script>
+    // callee：函数里arguments对象的属性；指向拥有arguments的函数（即本函数）
+    //  用法：arguments.callee
+    (function() {
+        console.log(arguments.callee);
+    })(); //用到
+
+    // caller: 函数对象的属性；指向调用当前函数的函数（即父函数）
+    //  用法：function.caller
+    (function outerFn() {
+        function innerFn() {
+            console.log(innerFn.caller);
+        }
+        innerFn();
+    })();
+    </script>
+</body>
+
+</html>

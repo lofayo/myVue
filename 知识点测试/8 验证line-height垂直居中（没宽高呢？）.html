@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>没宽高的元素还能line-height垂直居中么？</title>
+    <style>
+    div {
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid black;
+    }
+    
+    span {
+        width: 5px;
+        height: 5px;
+        display: inline-block;
+        border: 10px solid green;
+        /*vertical-align: middle;*/
+    }
+    </style>
+</head>
+
+<body>
+    <p>line-height和vertical-align里面的知识点很深，需要好好理解，而不是单纯的记忆用法</p>
+    <div>
+        <span></span>.
+    </div>
+</body>
+
+</html>

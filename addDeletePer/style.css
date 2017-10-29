@@ -1,0 +1,50 @@
+#app {
+    width: 50%;
+    margin: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table tr td {
+    text-align: center;
+    max-width: 25%;
+    box-sizing: border-box;
+}
+.input {
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.input:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.input span {
+    float: left;
+}
+.input input {
+    float: right;
+}
+.btn {
+    background-color: #42b983;
+    border: none;
+    padding: 5px 10px;
+    float: left;
+    cursor: pointer;
+}
+thead {
+    background-color: #42b983;
+    text-align: center;
+}
+td {
+    padding: 5px;
+}
+tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+tbody tr:nth-of-type(even) {
+    background-color: #ccc;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-else-if</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-8">
+		<p>{{randomNum}}</p>
+		<p v-if="randomNum>0.8">随机数大于0.8</p>
+		<!-- v-else-if是vue 2.1.0新增，所以更新vue.js到此版本之上 -->
+		<p v-else-if="randomNum>0.6">随机数大于0.6小于0.8</p>
+		<p v-else-if="randomNum>0.4">随机数大于0.4小于0.6</p>
+		<p v-else>随机数小于0.4</p>
+
+	</div>
+	<script>
+		var app8=new Vue({
+			el:"#app-8",
+			data:{
+				randomNum:Math.random()
+			}
+
+		})
+	</script>
+</body>
+</html>

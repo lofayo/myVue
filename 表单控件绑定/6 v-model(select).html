@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(select)</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>/*下拉列表的多选，window下按住Ctrl*/</p>
+        <select name="" id="" v-model='selected' multiple="multiple" style="width: 50px;">
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="c">c</option>
+        </select>
+        <p>your selected:{{ selected }}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            selected: []
+        }
+    })
+    </script>
+</body>
+
+</html>

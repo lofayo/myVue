@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(text)</title>
+</head>
+
+<body>
+    <!-- 表单控件双向绑定的理解：
+                1、数据绑定，在于vue实例的数据联系
+                2、双向绑定，在于v-model指令的控制
+                3、vue实例的关联，对应变量的显示；v-model指令检测到改变，反馈到vue实例，再到变量
+                4、修饰符.lazy改变input更新方式。默认边输入边更新，.lazy是change后更新的
+     -->
+    <div id="app">
+        <input type="text" placeholder="edit me" v-model.lazy="message">
+        <br>
+        <span>Message is: {{ message | capitalize }}</span>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    // 新建vue对象
+    var vm = new Vue({
+        el: "#app", //关联元素
+        data: { //存放具体数据
+            message: 'hello' //这里存放具体的值，即使空值
+        },
+        // 过滤器：文本格式化
+        filters: {
+            capitalize: function(value) {
+                if (!value) return '';
+                value = value.toString();
+                return value.charAt(0).toUpperCase() + value.slice(1, value.length - 1) + value.charAt(value.length - 1).toUpperCase();
+            },
+            upperCase: function(value) {
+                if (!value) return '';
+                value = value.toString();
+                return value.toUpperCase();
+            }
+        }
+
+    })
+    </script>
+</body>
+
+</html>

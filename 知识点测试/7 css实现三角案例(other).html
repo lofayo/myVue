@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css实现的三角形案例</title>
+    <style>
+    body {
+        background-color: #45E1D0;
+    }
+    
+    div {
+        /*默认的“块级元素”的width是父元素100%，只有设置了宽度的block element的margin:auto;才有效*/
+        /*前提得确定了“内部元素的大小”*/
+        /*width: 20%;*/
+        margin: 20px auto;
+        /*对于不确定内部元素大小，想要水平绝对居中，应该 text-align: center*/
+        text-align: center;
+    }
+    
+    .right-arrow span {
+        /*行内元素设置为内联块，为了后续的宽高*/
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-right-style: none;
+        border-left-color: white;
+    }
+    
+    .bubble {
+        height: 65px;
+        line-height: 65px;
+        text-align: center;
+    }
+    
+    .bubble span {
+        display: inline-block;
+    }
+    
+    .bubble .angle {
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-right-color: #3399FF;
+        /*行内元素默认是以文字基线对齐的，所以需要垂直居中*/
+        vertical-align: middle;
+    }
+    
+    .bubble .text {
+        width: 450px;
+        height: 65px;
+        background-color: #3399FF;
+        text-align: center;
+        color: white;
+    }
+    /*ribbon*/
+    /*利用伪元素*/
+    
+    .ribbon {
+        position: relative;
+    }
+    
+    .ribbon:before,
+    .ribbon:after {
+        /*在内容为空情况下，可以设置其它内容 */
+        content: '';
+        /*content默认情况下，是行内元素*/
+        display: inline-block;
+        border: 37px solid #FF0066;
+        vertical-align: bottom;
+        position: relative;
+        top: 16px;
+    }
+    
+    .ribbon:before {
+        border-left-color: transparent;
+        box-shadow: 1px 1px 1px #996699;
+        left: 20px;
+    }
+    
+    .ribbon:after {
+        border-right-color: transparent;
+        box-shadow: -1px 1px 1px #996699;
+        right: 20px;
+    }
+    
+    .ribbon .ribbon-text {
+        display: inline-block;
+        width: 250px;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
+        color: white;
+        background-color: #FF0066;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .ribbon-text:before,
+    .ribbon-text:after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        border: 8px solid #FF0066;
+    }
+    
+    .ribbon-text:before {
+        left: 0;
+        border-top-color: #CC0033;
+        border-right-color: #CC0033;
+    }
+    
+    .ribbon-text:after {
+        right: 0;
+        border-left-color: #CC0033;
+        border-top-color: #CC0033;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="right-arrow">
+        <span></span><span></span>
+    </div>
+    <p>line-height的垂直居中，使用于有宽高的元素</p>
+    <div class="bubble">
+        <span class="angle"></span><span class="text">立即查看</span>
+    </div>
+    <div class="ribbon">
+        <span class="ribbon-text">金卡会员</span>
+    </div>
+</body>
+
+</html>

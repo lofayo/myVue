@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-else</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app-7">
+		<p v-if="randomNum>50">you large than 50<br>you:{{parseInt(randomNum)}}</p>
+		<p v-else>you less than 50<br>you:{{parseInt(randomNum)}}         
+		</p>
+		<!-- vue用{{}}来保存变量 -->
+	</div>
+	<script>
+		var app7=new Vue({
+			el:"#app-7",			//必须将vue指令绑定到vue实例上
+			data:{
+				randomNum:Math.random()*100
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model(checkboxValue)</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" value="luo" id="luo" v-model="selectedNames">
+        <label for="luo">luo</label>
+        <input type="checkbox" value="fang" id="fang" v-model="selectedNames">
+        <label for="fang">fang</label>
+        <input type="checkbox" value="yong" id="yong" v-model="selectedNames">
+        <label for="yong">yong</label>
+        <p>you selected name: {{ selectedNames }}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            selectedNames: [] //这个地方其实很灵活，为什么是数组就不能反映到input中的selectedNames
+                //checkbox默认值是布尔值
+        }
+    })
+    </script>
+</body>
+
+</html>
