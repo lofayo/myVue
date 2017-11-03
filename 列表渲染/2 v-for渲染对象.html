@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2 v-for 渲染对象</title>
+</head>
+
+<body>
+    <div id="app">
+        <span v-for='value in student'>{{value}}  </span>
+        <p v-for='(value, key, index) in student'>{{index}}--{{key}}: {{value}}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                student: {
+                    name: '闫瑾',
+                    major: 'dancer',
+                    personality: 'cute'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

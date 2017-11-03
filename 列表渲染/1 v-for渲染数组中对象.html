@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1 v-for 渲染数组中的对象</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>学生列表</h3>
+        <ul>
+            <li v-for='student in students'>{{student.name}}--{{student.sex}}</li>
+        </ul>
+        <p v-for='(student, index) in students'>{{index}}--{{student.name}}--{{student.sex}}</p>
+        <ul>
+            <li v-for='student in students'>
+                <span v-for='(value,key) in student'>{{key}}:{{value}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 对数组中对象的渲染，循环每个具体对象，获取每个对象各个属性值
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                students: [{
+                    name: '李大伟',
+                    sex: '男'
+                }, {
+                    name: '何宇宁',
+                    sex: '女'
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>
