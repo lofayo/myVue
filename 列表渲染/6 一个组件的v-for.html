@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>6 一个组件的v-for</title>
+</head>
+
+<body>
+    <div id="todo_lists">
+        <input type="text" v-model='newTodoText' v-on:keyup.enter="addNewTodo()">
+        <ul>
+            <li v-for='(todo,index) in todos'>{{todo.title}}
+                <button v-on:click='todos.splice(index,1)'>X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#todo_lists',
+            data: {
+                newTodoText: '',
+                todos: [{
+                    id: 1,
+                    title: 'study'
+                }, {
+                    id: 2,
+                    title: 'reading'
+                }, {
+                    id: 3,
+                    title: 'programing'
+                }],
+                nextTodoId: 4
+            },
+            methods: {
+                addNewTodo: function() {
+                    this.todos.push({
+                        id: this.nextTodoId++,
+                        title: this.newTodoText
+                    });
+                    this.newTodoText = '';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1 监听事件</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>通过vue实现的数据实时响应</h3>
+        <button v-on:click='counter += 2'>增加2</button>
+        <p>点击后counter的值： {{counter}}</p>
+        <button @click='counter += 1'>增加1</button>
+    </div>
+    <div>
+        <h3>通过jQuery实现的数据实时响应</h3>
+        <button id="btn">增加3</button>
+        <p>每次点击按钮后改变的值<span id="txt"></span></p>
+    </div>
+    <script src="../vue.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // vue.js有个特性：在字符串中写js的属性或方法
+        // v-model能实现输入块的双向绑定，HTML中js代码好像也可以实时响应
+        // html中绑定到vue实例中的数据都是实时响应
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                counter: 1
+            },
+            methods: {
+                addOne: function() {
+                    this.counter++;
+                }
+            }
+        })
+    </script>
+    <script>
+        // 其实两种方案实现原理都差不多：都初始化一个变量，点击后改变值，将值传入某位置
+        // 只是vue将变量和方法都集合在一个对象的属性中，这样更有整体感
+        $(function() {
+            var counter = 1;
+            $('#btn').click(function() {
+                counter += 3;
+                $('#txt').html(counter);
+            })
+            console.log($('#app')[0].innerHTML);
+            console.log($('#app')[0].outerHTML);
+        })
+    </script>
+</body>
+
+</html>

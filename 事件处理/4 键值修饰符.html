@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4 键值修饰符</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='newTodo' v-on:keyup.f2='addTodo'>
+        <ul>
+            <li v-for='value in todoLists'>{{value}}</li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // document.onkeyup = function(event) {
+        //     alert(event.keyCode);
+        // }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                newTodo: '',
+                todoLists: ['reading', 'programming']
+            },
+            methods: {
+                addTodo: function() {
+                    this.todoLists.push(this.newTodo);
+                    this.newTodo = '';
+                }
+            }
+        });
+        // 自定义键值修饰别名
+        Vue.config.keyCodes.f2 = 113;
+
+        // 学习了这么久，应该对事件要更熟悉了：
+        // 事件分为鼠标事件和键盘事件，只要是事件都有个事件对象event，在这个对象挂载了众多属性
+        // 鼠标事件：event.clientX,  event.clientY
+        // 键盘事件：event.keyCode
+        // 事件有很多：click, dbclick,  mouseover,  mousedown,   mouseup,,keydown, keyup
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4 显示过滤或排序结果</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='n in even'>{{n}}</li>
+        </ul>
+        <p v-for='n in evenNumbers()'>{{n}}</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 其实这里面考察：数组过滤函数、计算属性以及函数方法、ES6对函数的写法很大程度都是简化书写
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                numbers: [1, 2, 3, 4, 5, 6, 7]
+            },
+            computed: {
+                even: function() {
+                    return this.numbers.filter(value => value % 2 == 0);
+                }
+            },
+            methods: {
+                evenNumbers() {
+                    return this.numbers.filter(value => value % 2 == 0);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

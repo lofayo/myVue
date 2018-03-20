@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2 方法事件处理器</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>vue下点击后函数执行</h3>
+        <!-- 在HTML属性里的js传入事件对象用$event -->
+        <button v-on:click.once='greet($event,"lofayo")'>点击执行函数</button>
+    </div>
+    <div>
+        <h3>原生下点击后函数执行</h3>
+        <button onclick="hello()">点击函数执行</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 很奇怪，在原生的js里函数执行都必须加括号，可是vue中不加括号依然能执行，并且还不能取到事件对象
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'vue.js'
+            },
+            methods: {
+                greet: function(event, str) {
+                    // alert('hello ' + this.name);
+                    alert('hello ' + str);
+                    if (event) {
+                        alert(event.target.tagName);
+                    }
+                }
+            }
+        });
+
+        function hello() {
+            alert('hello origin js');
+        }
+    </script>
+</body>
+
+</html>

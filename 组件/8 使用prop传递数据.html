@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>8 使用prop传递数据</title>
+</head>
+
+<body>
+    <div id="app">
+        <child message='hello'></child>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 注册组件
+        Vue.component('child', {
+            props: ['message'],
+            template: '<span>{{message}}</span>'
+        });
+
+        // vue实例化
+        var vm = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
